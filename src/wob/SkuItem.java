@@ -17,6 +17,7 @@ public class SkuItem {
 	public Date ItemReceivedDate;
 	private long dateDifference;
 	
+	//construct the sku item
 	public SkuItem(String pSku, int pQuantity, String pBarcode, double pRetailPrice, Date pItemReceiveDate) throws Exception
 	{
 		SKU = pSku;
@@ -70,6 +71,7 @@ public class SkuItem {
 	    return Math.abs(TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS));
 	}
 	
+	//Concatenate the sku items data as a csv row
 	public String GetCSVRow()
 	{
 		StringBuilder sb = new StringBuilder();

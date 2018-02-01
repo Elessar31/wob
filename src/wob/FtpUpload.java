@@ -13,10 +13,10 @@ public class FtpUpload {
 	private FTPClient ftpClient;
 	public FtpUpload()
 	{
-		ftpClient = new FTPClient();		
-		
+		ftpClient = new FTPClient();				
 	}
 	
+	//Create connection to the server
 	public Boolean Connnect()
 	{
 		PropertyValues connInfos = new PropertyValues();
@@ -33,23 +33,24 @@ public class FtpUpload {
 		return ftpClient.isConnected();
 	}
 	
+	//upload the file to the ftp  server
 	public Boolean Upload(String Filename)
 	{
 		try {
 			if (!ftpClient.isConnected())
 			{
-				throw new Exception ("Please log in first!");
+				throw new Exception ("Please connect first!");
 			}
 	           // APPROACH #1: uploads first file using an InputStream
 		 File firstLocalFile = new File(Filename);
 		
 		 InputStream inputStream = new FileInputStream(firstLocalFile);
 		
-		 System.out.println("Start uploading first file");
+		 System.out.println("Start uploading file");
 		 boolean done = ftpClient.storeFile(Filename, inputStream);
 		 inputStream.close();
 		 if (done) {
-		     System.out.println("The first file is uploaded successfully.");
+		     System.out.println("The file is uploaded successfully.");
 		 }
 		 else
 		 {

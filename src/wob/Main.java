@@ -53,6 +53,10 @@ public class Main {
 					}
 					else throw new Exception("Can not connect to ftp");
 				}
+				else
+				{
+					System.out.println("Empty csv file. Not going to be updated");
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			} 

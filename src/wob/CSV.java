@@ -16,6 +16,7 @@ public class CSV {
         initHeaderLine();
     }
     
+    //initialize csv header line
     private void initHeaderLine()
     {
     	sb.append("SKU");
@@ -30,11 +31,13 @@ public class CSV {
         sb.append('\n');
     }
     
+    //return the generated file name
     public String GetName()
     {
     	return filename;
     }
     
+    //append a new row to the csv file
     public void Append(String row)
     {
     	sb.append(row);
@@ -42,6 +45,7 @@ public class CSV {
     	if (row != "") HasRows = true;
     }
     
+    //write and close the csv file
     public void flush() throws FileNotFoundException
     {
     	PrintWriter pw = new PrintWriter(new File(filename));
